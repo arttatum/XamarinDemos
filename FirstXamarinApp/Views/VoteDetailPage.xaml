@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FirstXamarinApp.Views.VoteDetailPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="{Binding Colour.Name, StringFormat='{} Here are some details about the votes for {0}'}"/>
+            <Label Text="{Binding NumberOfVotes, StringFormat='{} It has {0} votes.'}"/>
+            <Label Text="{Binding ColourHex, StringFormat='{} The hex is {0}.'}"/>
+            <Label Text="{Binding LastVoteCast, StringFormat='{} The last vote for this colour was made at: {0}.'}"/>
+            <Label Text="{Binding Colour.Name, StringFormat='{} Would you like to vote for {0}?'}"/>
+            <Button Text="{Binding Colour.Name, StringFormat='{} Vote {0}!'}" Command="{Binding VoteForColour}" CommandParameter="{Binding ColourId}"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
