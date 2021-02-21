@@ -35,6 +35,15 @@ namespace FirstXamarinApp.ViewModels.Dogs
             }
         }
 
+        private Uri imageUrl;
+        public Uri ImageUrl
+        {
+            get => imageUrl;
+            set => SetProperty(ref imageUrl, value);
+        }
+
+
+
         private int averageHeight;
         public int AverageHeight
         {
@@ -88,8 +97,9 @@ namespace FirstXamarinApp.ViewModels.Dogs
                 Breed = dog.Breed;
                 AverageWeight = dog.AverageWeight;
                 AverageHeight = dog.AverageHeight;
-                Description = dog.Description;            
+                Description = dog.Description;
                 NumberOfVotes = dogVotes.NumberOfVotes;
+                ImageUrl = dog.ImageUrl;
             }
             catch (Exception)
             {

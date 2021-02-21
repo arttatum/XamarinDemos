@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FirstXamarinApp.Views.Colours.ColourVoteSummaryPage"
              xmlns:local="clr-namespace:FirstXamarinApp.ViewModels.Votes"  
-             xmlns:model="clr-namespace:FirstXamarinApp.Models"  
-             BindingContext="ColourVoteSummaryViewModel">
+             xmlns:model="clr-namespace:FirstXamarinApp.Models"  >
     <RefreshView x:DataType="local:ColourVoteSummaryViewModel" Command="{Binding LoadColoursCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
         <CollectionView x:Name="VoteSummaryListView"
             ItemsSource="{Binding ColourVoteTrackers}"

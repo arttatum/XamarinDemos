@@ -22,13 +22,13 @@ namespace FirstXamarinApp.Views.Colours
 
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
 
             BindingContext = _viewModel = new ColourVoteSummaryViewModel();
 
-            _viewModel.OnAppearing();
+            await _viewModel.OnAppearing();
         }
     }
 }

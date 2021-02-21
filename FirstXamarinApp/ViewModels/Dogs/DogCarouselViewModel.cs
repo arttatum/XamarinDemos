@@ -27,7 +27,7 @@ namespace FirstXamarinApp.ViewModels.Dogs
         {
             Title = "Dog Carousel";
             Dogs = new ObservableCollection<Dog>();
-            LoadDogsCommand = new Command(async () => await ExecuteLoadDogsCommand());
+            Task.Run(async () => await ExecuteLoadDogsCommand());
             DogTapped = new Command<Dog>(OnDogSelected);
         }
 
@@ -40,10 +40,10 @@ namespace FirstXamarinApp.ViewModels.Dogs
                 if (Dogs.Count() > 0)
                     return;
 
-                var colours = await DogStore.GetItemsAsync(true);
-                foreach (var colour in colours)
+                var dogs = await DogStore.GetItemsAsync(true);
+                foreach (var dog in dogs)
                 {
-                    Dogs.Add(colour);
+                    Dogs.Add(dog);
                 }
             }
             catch (Exception ex)

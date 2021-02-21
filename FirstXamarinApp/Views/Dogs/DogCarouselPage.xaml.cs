@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FirstXamarinApp.ViewModels.Dogs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace FirstXamarinApp.Views.Dogs
         public DogCarouselPage()
         {
             InitializeComponent();
+            BindingContext = new DogCarouselViewModel();
         }
     }
 }

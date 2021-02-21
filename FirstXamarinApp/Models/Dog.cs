@@ -11,5 +11,6 @@ namespace FirstXamarinApp.Models
         public int AverageWeight { get; set; }
         public string DogId { get; set; }
         public string Description { get; set; }
+        public Uri ImageUrl { get; set; }
     }
 }
