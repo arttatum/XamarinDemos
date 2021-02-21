@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FirstXamarinApp.Models
 {
-    public class VoteTracker
+    public class ColourVoteTracker
     {
         public string Id { get; set; }
         public System.Drawing.Color Colour { get; set; }

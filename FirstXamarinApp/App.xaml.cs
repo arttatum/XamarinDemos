@@ -12,7 +12,9 @@ namespace FirstXamarinApp
         public App()
         {
             InitializeComponent();
-            DependencyService.Register<MockVoteStore>();
+            DependencyService.Register<MockDogStore>();
+            DependencyService.Register<MockDogVoteStore>();
+            DependencyService.Register<MockColourVoteStore>();
             DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
         }

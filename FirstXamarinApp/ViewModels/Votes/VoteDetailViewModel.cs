@@ -18,7 +18,7 @@ namespace FirstXamarinApp.ViewModels.Votes
             VoteForColour = new Command(async () => await CastVote(ColourId));
         }
 
-        public IDataStore<VoteTracker> DataStore => DependencyService.Get<IDataStore<VoteTracker>>();
+        public IDataStore<ColourVoteTracker> DataStore => DependencyService.Get<IDataStore<ColourVoteTracker>>();
 
         private string colourId;
         private System.Drawing.Color colour;

@@ -13,20 +13,20 @@ namespace FirstXamarinApp.ViewModels.Votes
 {
     public class VoteSummaryViewModel : BaseViewModel
     {
-        public IDataStore<VoteTracker> DataStore => DependencyService.Get<IDataStore<VoteTracker>>();
+        public IDataStore<ColourVoteTracker> DataStore => DependencyService.Get<IDataStore<ColourVoteTracker>>();
 
-        private VoteTracker _selectedColour;
+        private ColourVoteTracker _selectedColour;
 
-        public ObservableCollection<VoteTracker> VoteTrackers { get; }
+        public ObservableCollection<ColourVoteTracker> VoteTrackers { get; }
         public Command LoadColoursCommand { get; }
-        public Command<VoteTracker> ColourTapped { get; }
+        public Command<ColourVoteTracker> ColourTapped { get; }
 
         public VoteSummaryViewModel()
         {
             Title = "Browse";
-            VoteTrackers = new ObservableCollection<VoteTracker>();
+            VoteTrackers = new ObservableCollection<ColourVoteTracker>();
             LoadColoursCommand = new Command(async () => await ExecuteLoadColoursCommand());
-            ColourTapped = new Command<VoteTracker>(OnColourSelected);
+            ColourTapped = new Command<ColourVoteTracker>(OnColourSelected);
         }
 
 
@@ -61,7 +61,7 @@ namespace FirstXamarinApp.ViewModels.Votes
             SelectedItem = null;
         }
 
-        public VoteTracker SelectedItem
+        public ColourVoteTracker SelectedItem
         {
             get => _selectedColour;
             set
@@ -72,7 +72,7 @@ namespace FirstXamarinApp.ViewModels.Votes
             }
         }
 
-        async void OnColourSelected(VoteTracker item)
+        async void OnColourSelected(ColourVoteTracker item)
         {
             if (item == null)
                 return;
