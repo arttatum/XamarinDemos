@@ -1,6 +1,7 @@
 ﻿using FirstXamarinApp.Models;
 using FirstXamarinApp.Services;
 using FirstXamarinApp.Views;
+using FirstXamarinApp.Views.Colours;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -11,20 +12,20 @@ using Xamarin.Forms;
 
 namespace FirstXamarinApp.ViewModels.Votes
 {
-    public class VoteSummaryViewModel : BaseViewModel
+    public class ColourVoteSummaryViewModel : BaseViewModel
     {
         public IDataStore<ColourVoteTracker> DataStore => DependencyService.Get<IDataStore<ColourVoteTracker>>();
 
         private ColourVoteTracker _selectedColour;
 
-        public ObservableCollection<ColourVoteTracker> VoteTrackers { get; }
+        public ObservableCollection<ColourVoteTracker> ColourVoteTrackers { get; }
         public Command LoadColoursCommand { get; }
         public Command<ColourVoteTracker> ColourTapped { get; }
 
-        public VoteSummaryViewModel()
+        public ColourVoteSummaryViewModel()
         {
-            Title = "Browse";
-            VoteTrackers = new ObservableCollection<ColourVoteTracker>();
+            Title = "Colours Summary";
+            ColourVoteTrackers = new ObservableCollection<ColourVoteTracker>();
             LoadColoursCommand = new Command(async () => await ExecuteLoadColoursCommand());
             ColourTapped = new Command<ColourVoteTracker>(OnColourSelected);
         }
@@ -36,13 +37,13 @@ namespace FirstXamarinApp.ViewModels.Votes
 
             try
             {
-                if (VoteTrackers.Count() > 0)
+                if (ColourVoteTrackers.Count() > 0)
                     return;
 
                 var colours = await DataStore.GetItemsAsync(true);
                 foreach (var colour in colours)
                 {
-                    VoteTrackers.Add(colour);
+                    ColourVoteTrackers.Add(colour);
                 }
             }
             catch (Exception ex)
@@ -77,8 +78,8 @@ namespace FirstXamarinApp.ViewModels.Votes
             if (item == null)
                 return;
 
-            // This will push the VoteDetailPage onto the navigation stack
-            await Shell.Current.GoToAsync($"{nameof(VoteDetailPage)}?{nameof(VoteDetailViewModel.ColourId)}={item.Id}");
+            // This will push the ColourVoteDetailPage onto the navigation stack
+            await Shell.Current.GoToAsync($"{nameof(ColourVoteDetailPage)}?{nameof(ColourVoteDetailViewModel.ColourId)}={item.Id}");
         }
 
     }

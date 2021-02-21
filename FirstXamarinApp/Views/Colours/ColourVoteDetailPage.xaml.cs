@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace FirstXamarinApp.Views
+namespace FirstXamarinApp.Views.Colours
 {
 
-    public partial class VoteDetailPage : ContentPage
+    public partial class ColourVoteDetailPage : ContentPage
     {
 
-        public VoteDetailPage()
+        public ColourVoteDetailPage()
         {
             InitializeComponent();
-            BindingContext = new VoteDetailViewModel();
+            BindingContext = new ColourVoteDetailViewModel();
         }
     }
 }

@@ -11,11 +11,26 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\VoteDetailPage.xaml">
+    <EmbeddedResource Update="Views\Colours\ColourVoteDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\VoteSummaryPage.xaml">
+    <EmbeddedResource Update="Views\Colours\ColourVoteSummaryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\Dogs\DogCarouselPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Dogs\DogDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\Colours\ColourVoteDetailPage.xaml.cs">
+      <DependentUpon>ColourVoteDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Colours\ColourVoteSummaryPage.xaml.cs">
+      <DependentUpon>ColourVoteSummaryPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

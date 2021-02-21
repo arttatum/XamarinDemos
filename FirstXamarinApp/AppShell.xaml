@@ -2,6 +2,8 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:FirstXamarinApp.Views"
+       xmlns:colours="clr-namespace:FirstXamarinApp.Views.Colours"
+       xmlns:dogs="clr-namespace:FirstXamarinApp.Views.Dogs"
        Title="FirstXamarinApp"
        x:Class="FirstXamarinApp.AppShell">
 
@@ -86,7 +88,10 @@
         <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:ItemsPage}" />
     </FlyoutItem>
     <FlyoutItem Title="Favourite Colours" Icon="icon_feed.png">
-        <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:VoteSummaryPage}" />
+        <ShellContent Route="ColourVoteSummaryPage" ContentTemplate="{DataTemplate colours:ColourVoteSummaryPage}" />
+    </FlyoutItem>    
+    <FlyoutItem Title="Favourite Dogs" Icon="icon_feed.png">
+        <ShellContent Route="DogCarouselPage" ContentTemplate="{DataTemplate dogs:DogCarouselPage}" />
     </FlyoutItem>
 
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->

@@ -11,9 +11,9 @@ using Xamarin.Forms;
 namespace FirstXamarinApp.ViewModels.Votes
 {
     [QueryProperty(nameof(ColourId), nameof(ColourId))]
-    public class VoteDetailViewModel : BaseViewModel
+    public class ColourVoteDetailViewModel : BaseViewModel
     {
-        public VoteDetailViewModel()
+        public ColourVoteDetailViewModel()
         {
             VoteForColour = new Command(async () => await CastVote(ColourId));
         }
@@ -60,8 +60,11 @@ namespace FirstXamarinApp.ViewModels.Votes
             }
             set
             {
-                colourId = value;
-                LoadColourId(value);
+                Task.Run(async () =>
+                {
+                    colourId = value;
+                    await LoadColourId(value);
+                });
             }
         }
 
@@ -86,11 +89,10 @@ namespace FirstXamarinApp.ViewModels.Votes
 
         private async Task CastVote(string colourId)
         {
-            var oldVoteTracker = await DataStore.GetItemAsync(colourId);
-            var newVoteTracker = oldVoteTracker;
-            newVoteTracker.NumberOfVotes++;
-            newVoteTracker.LastVoteCast = DateTime.Now;
-            await DataStore.UpdateItemAsync(newVoteTracker);
+            var voteTracker = await DataStore.GetItemAsync(colourId);
+            voteTracker.NumberOfVotes++;
+            voteTracker.LastVoteCast = DateTime.Now;
+            await DataStore.UpdateItemAsync(voteTracker);
             await LoadColourId(colourId);
         }
     }

@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace FirstXamarinApp.Views
+namespace FirstXamarinApp.Views.Colours
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class VoteSummaryPage : ContentPage
+    public partial class ColourVoteSummaryPage : ContentPage
     {
-        VoteSummaryViewModel _viewModel;
+        ColourVoteSummaryViewModel _viewModel;
 
-        public VoteSummaryPage()
+        public ColourVoteSummaryPage()
         {
             InitializeComponent();
 
@@ -26,7 +26,7 @@ namespace FirstXamarinApp.Views
         {
             base.OnAppearing();
 
-            BindingContext = _viewModel = new VoteSummaryViewModel();
+            BindingContext = _viewModel = new ColourVoteSummaryViewModel();
 
             _viewModel.OnAppearing();
         }
